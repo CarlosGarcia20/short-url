@@ -12,7 +12,7 @@ export class UrlController {
                 return res.status(400).json({ message: "La URL original es obligatoria" });
             }
     
-            let shortCodeUrl = nanoid()
+            let shortCodeUrl = nanoid(6)
     
             let validateCode = await Url.findOne({shortCode: shortCodeUrl})
     
@@ -32,8 +32,6 @@ export class UrlController {
             });
 
         } catch (error) {
-            console.log(error);
-            
             res.status(500).json({ message: "Internal Server Error" });
         }
     }

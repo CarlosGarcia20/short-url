@@ -1,5 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
+import 'dotenv/config'
 
 import connectDb from './app/config/db.js';
 import { PORT } from './app/config/config.js';
@@ -14,6 +15,15 @@ connectDb();
 
 app.use('/url', urlRoutes)
 
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto: ${PORT}`);
-})
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(4000, () => {
+        console.log('Servidor corriendo en el puerto: 4000');
+    });
+}
+
+// app.listen(PORT, () => {
+//     console.log(`Servidor corriendo en el puerto: ${PORT}`);
+// })
+
+
+export default app
