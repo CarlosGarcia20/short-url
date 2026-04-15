@@ -4,8 +4,8 @@ import morgan from 'morgan';
 import connectDb from './app/config/db.js';
 import { PORT } from './app/config/config.js';
 import { urlRoutes } from './app/routes/url.js';
-import limiter from './utils/rate-limiter.js';
-import { corsMiddleware } from './middlewares/cors.js';
+import limiter from './app/utils/rate-limiter.js';
+import { corsMiddleware } from './app/middlewares/cors.js';
 
 const app = express();
 
